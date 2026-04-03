@@ -1,0 +1,27 @@
+{
+  "name": "com.rolandkaechele.gamemanager",
+  "displayName": "Game Manager",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "description": "Central game-state coordinator: state machine (MainMenu, Loading, Playing, Paused, GameOver, Victory), chapter/mission definitions, pause/resume, and JSON manifest support for modding.",
+  "author": {
+    "name": "Roland Kaechele",
+    "url": "https://github.com/RolandKaechele/GameManager"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RolandKaechele/GameManager.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "unity",
+    "game",
+    "manager",
+    "state machine",
+    "chapter",
+    "mission",
+    "modding",
+    "framework"
+  ],
+  "documentationUrl": "https://github.com/RolandKaechele/GameManager#readme"
+}
