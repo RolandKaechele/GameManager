@@ -23,5 +23,8 @@
     "modding",
     "framework"
   ],
-  "documentationUrl": "https://github.com/RolandKaechele/GameManager#readme"
+  "documentationUrl": "https://github.com/RolandKaechele/GameManager#readme",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  }
 }

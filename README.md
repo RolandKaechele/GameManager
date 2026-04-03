@@ -37,9 +37,14 @@ Supports JSON chapter manifests for modding.
 git clone https://github.com/RolandKaechele/GameManager.git Assets/GameManager
 ```
 
-### Option C — Manual copy
+### Option C — npm / postinstall
 
-Copy the `GameManager/` folder into your project's `Assets/` directory.
+```bash
+cd Assets/GameManager
+npm install
+```
+
+`postinstall.js` creates the required `StreamingAssets/` folder under `Assets/` and optionally copies example JSON files.
 
 
 ## Scene Setup
