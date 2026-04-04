@@ -16,6 +16,7 @@ Supports JSON chapter manifests for modding.
 - **SaveManager integration** — flag-based chapter unlock evaluation; auto-save on `StartNewGame()` (activated via `GAMEMANAGER_SM`)
 - **MapLoaderFramework integration** — chapter transitions routed through MapLoader (activated via `GAMEMANAGER_MLF`)
 - **EventManager integration** — state changes and chapter loads broadcast as named GameEvents (activated via `GAMEMANAGER_EM`)
+- **StateManager integration** — `GameState` changes are automatically mapped to `AppState` by StateManager's `GameManagerBridge` (consumed via `STATEMANAGER_GM`)
 - **Custom Inspector** — live state display, per-chapter load buttons, state controls
 
 
