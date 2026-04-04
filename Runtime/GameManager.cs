@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if ODIN_INSPECTOR
+using Sirenix.OdinInspector;
+#endif
 
 namespace GameManager.Runtime
 {
@@ -80,7 +83,11 @@ namespace GameManager.Runtime
     /// </summary>
     [AddComponentMenu("GameManager/Game Manager")]
     [DisallowMultipleComponent]
+#if ODIN_INSPECTOR
+    public class GameManager : SerializedMonoBehaviour
+#else
     public class GameManager : MonoBehaviour
+#endif
     {
         // -------------------------------------------------------------------------
         // Inspector

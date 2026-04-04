@@ -18,6 +18,7 @@ Supports JSON chapter manifests for modding.
 - **EventManager integration** — state changes and chapter loads broadcast as named GameEvents (activated via `GAMEMANAGER_EM`)
 - **StateManager integration** — `GameState` changes are automatically mapped to `AppState` by StateManager's `GameManagerBridge` (consumed via `STATEMANAGER_GM`)
 - **Custom Inspector** — live state display, per-chapter load buttons, state controls
+- **Odin Inspector integration** — `SerializedMonoBehaviour` base for full Inspector serialization of complex types; runtime-display fields marked `[ReadOnly]` in Play Mode (activated via `ODIN_INSPECTOR`)
 
 
 ## Installation
@@ -200,6 +201,11 @@ Requires `GAMEMANAGER_EM` define. The following named GameEvents are fired:
 | `Victory` | TriggerVictory() |
 
 
+### Odin Inspector (`ODIN_INSPECTOR`)
+
+Requires `ODIN_INSPECTOR` define (standard Odin Inspector scripting define). Inherits from `SerializedMonoBehaviour` for full Inspector serialization; runtime-display fields are marked `[ReadOnly]`.
+
+
 ## Dependencies
 
 | Dependency | Required | Notes |
@@ -208,6 +214,7 @@ Requires `GAMEMANAGER_EM` define. The following named GameEvents are fired:
 | SaveManager | optional | Required when `GAMEMANAGER_SM` is defined |
 | MapLoaderFramework | optional | Required when `GAMEMANAGER_MLF` is defined |
 | EventManager | optional | Required when `GAMEMANAGER_EM` is defined |
+| Odin Inspector | optional | Required when `ODIN_INSPECTOR` is defined |
 
 
 ## Repository
