@@ -1,18 +1,22 @@
 {
-  "chapters": [
-    {
-      "id": "chapter_01",
-      "displayName": "Angriff der grünen Spinnen",
-      "sceneName": "Chapter01",
-      "index": 1,
-      "requiredFlags": []
-    },
-    {
-      "id": "chapter_02",
-      "displayName": "Die unterirdische Basis",
-      "sceneName": "Chapter02",
-      "index": 2,
-      "requiredFlags": ["chapter_01_complete"]
-    }
-  ]
+    "chapters":  [
+                     {
+                         "id":  "chapter_01",
+                         "displayName":  "Angriff der grünen Spinnen",
+                         "sceneName":  "Chapter01",
+                         "index":  1,
+                         "requiredFlags":  [
+
+                                           ]
+                     },
+                     {
+                         "id":  "chapter_02",
+                         "displayName":  "Die unterirdische Basis",
+                         "sceneName":  "Chapter02",
+                         "index":  2,
+                         "requiredFlags":  [
+                                               "chapter_01_complete"
+                                           ]
+                     }
+                 ]
 }
