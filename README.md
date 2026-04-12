@@ -12,7 +12,7 @@ Supports JSON chapter manifests for modding.
 - **Chapter registry** — define chapters (id, display name, scene name, ordering index, required flags) in the Inspector
 - **Chapter loading** — `LoadChapter(id)`, `LoadChapter(index)`, `LoadNextChapter()`, `StartNewGame()`
 - **Unlock checks** — `IsChapterUnlocked(id)` respects `requiredFlags` evaluated against SaveManager flags
-- **JSON / Modding** — load and merge chapter definitions from `StreamingAssets/game_config.json` at startup; JSON entries override Inspector entries by id and can add new ones
+- **JSON / Modding** — load and merge chapter definitions from `StreamingAssets/game_config/` at startup; JSON entries override Inspector entries by id and can add new ones
 - **SaveManager integration** — flag-based chapter unlock evaluation; auto-save on `StartNewGame()` (activated via `GAMEMANAGER_SM`)
 - **MapLoaderFramework integration** — chapter transitions routed through MapLoader (activated via `GAMEMANAGER_MLF`)
 - **EventManager integration** — state changes and chapter loads broadcast as named GameEvents (activated via `GAMEMANAGER_EM`)
@@ -69,7 +69,7 @@ npm install
 | `chapters` | *(empty)* | Chapter definitions array |
 | `startingChapterId` | `"chapter_01"` | ID loaded by `StartNewGame()` |
 | `loadChaptersFromJson` | `false` | Merge from JSON on Awake |
-| `chaptersJsonPath` | `"game_config.json"` | Path relative to `StreamingAssets/` |
+| `chaptersJsonPath` | `"game_config/"` | Folder relative to `StreamingAssets/` containing `.json` files to merge. Falls back to single-file mode if the value points to an existing file. |
 | `controlTimeScale` | `true` | Set `Time.timeScale` on Pause/Resume |
 
 ### 2. Wire chapter transitions
@@ -115,7 +115,10 @@ gm.TriggerVictory();   // GameState.Victory
 
 ## JSON / Modding
 
-Enable `loadChaptersFromJson` and place `game_config.json` in `StreamingAssets/`.
+Enable `loadChaptersFromJson` and place one or more `.json` files in `StreamingAssets/game_config/`.
+All `*.json` files in the folder are loaded and merged by `id` at startup.
+
+**Example:** `StreamingAssets/game_config/main.json`
 
 ```json
 {

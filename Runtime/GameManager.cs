@@ -108,8 +108,8 @@ namespace GameManager.Runtime
         [Tooltip("When enabled, merge chapter definitions from a JSON file in StreamingAssets/ at startup.")]
         [SerializeField] private bool loadChaptersFromJson = false;
 
-        [Tooltip("Path relative to StreamingAssets/ (e.g. 'game_config.json' or 'Mods/game_config.json').")]
-        [SerializeField] private string chaptersJsonPath = "game_config.json";
+        [Tooltip("Path relative to StreamingAssets/ (e.g. 'game_config/' or 'Mods/game_config.json').")]
+        [SerializeField] private string chaptersJsonPath = "game_config/";
 
         [Header("Pause")]
         [Tooltip("Set Time.timeScale to 0 when state enters Paused and back to 1 on resume.")]
@@ -185,12 +185,24 @@ namespace GameManager.Runtime
 
         private void LoadChaptersJson()
         {
-            string path = Path.Combine(Application.streamingAssetsPath, chaptersJsonPath);
-            if (!File.Exists(path))
+            string fullPath = Path.Combine(Application.streamingAssetsPath, chaptersJsonPath);
+            if (Directory.Exists(fullPath))
             {
-                Debug.LogWarning($"[GameManager] JSON not found: {path}");
-                return;
+                foreach (var file in Directory.GetFiles(fullPath, "*.json", SearchOption.TopDirectoryOnly))
+                    MergeChaptersFromFile(file);
             }
+            else if (File.Exists(fullPath))
+            {
+                MergeChaptersFromFile(fullPath);
+            }
+            else
+            {
+                Debug.LogWarning($"[GameManager] JSON not found: {fullPath}");
+            }
+        }
+
+        private void MergeChaptersFromFile(string path)
+        {
             try
             {
                 var wrapper = JsonUtility.FromJson<ChapterManifestJson>(File.ReadAllText(path));
@@ -211,7 +223,7 @@ namespace GameManager.Runtime
                     }
                 }
                 _chapters.Sort((a, b) => a.index.CompareTo(b.index));
-                Debug.Log($"[GameManager] Chapter manifest merged from {path}.");
+                Debug.Log($"[GameManager] Merged from {path}.");
             }
             catch (Exception ex)
             {
