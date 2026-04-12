@@ -207,6 +207,19 @@ Requires `GAMEMANAGER_EM` define. The following named GameEvents are fired:
 Requires `ODIN_INSPECTOR` define (standard Odin Inspector scripting define). Inherits from `SerializedMonoBehaviour` for full Inspector serialization; runtime-display fields are marked `[ReadOnly]`.
 
 
+## Editor Tools
+
+Open via **JSON Editors → Game Manager** in the Unity menu bar, or via the **Open JSON Editor** button in the GameManager Inspector.
+
+| Action | Result |
+| ------ | ------ |
+| **Load** | Reads `StreamingAssets/game_config.json`; creates the file if missing |
+| **Edit** | Add / remove / reorder chapter definitions using the Inspector list |
+| **Save** | Writes back to `StreamingAssets/game_config.json` and calls `AssetDatabase.Refresh()` |
+
+With **ODIN_INSPECTOR** active, the list uses Odin's enhanced drawer (drag-to-sort, collapsible entries).
+
+
 ## Dependencies
 
 | Dependency | Required | Notes |

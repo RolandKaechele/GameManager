@@ -16,6 +16,9 @@ namespace GameManager.Editor
         {
             DrawDefaultInspector();
 
+            EditorGUILayout.Space(4);
+            if (GUILayout.Button("Open JSON Editor")) GameConfigJsonEditorWindow.ShowWindow();
+
             EditorGUILayout.Space(6);
 
             // ── Validation ──────────────────────────────────────────────────────
