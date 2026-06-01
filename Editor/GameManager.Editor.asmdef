@@ -1,8 +1,9 @@
-﻿{
+{
     "name": "GameManager.Editor",
     "rootNamespace": "GameManager.Editor",
     "references": [
-        "GameManager.Runtime"
+        "GameManager.Runtime",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"
